@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="入力するだけで文字数をリアルタイムにカウント。UTF-8テキストの読み込み・保存に対応するシンプルなエディターです。">
+<title>文字数カウントエディター</title>
+<link rel="stylesheet" href="./style.css"><script src="./counter.js" defer></script><script src="./app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="./"><span class="logo">文<span>123</span></span>文字数カウントエディター</a><span class="private"><i></i> ブラウザ内で処理</span></header>
+<main>
+<section class="intro"><p class="eyebrow">A LITTLE SPACE FOR YOUR WORDS</p><h1>書くことに、集中しよう。</h1><p>文字数は、書くそばから。文章を貼り付けても、ここから書き始めても。</p></section>
+<div class="workspace">
+<section class="editor panel" aria-label="テキストエディター">
+<div class="toolbar"><div class="file-info"><span class="file-icon">≡</span><span id="document-name">無題のテキスト</span><span id="edited" hidden>編集中</span></div><div class="actions"><button id="new" type="button">新規</button><button id="open" type="button">開く</button><button id="save" type="button" class="primary">↓ 保存</button></div><input id="file" type="file" accept=".txt,.md,.csv,.log,text/plain,text/markdown" hidden></div>
+<label class="sr-only" for="text">文字数を数える文章</label><textarea id="text" placeholder="ここに文章を入力、または貼り付けてください。" spellcheck="false" aria-describedby="count-note"></textarea>
+<div class="editor-bottom"><span>UTF-8 テキスト</span><span>⌘ / Ctrl + S で保存</span></div>
+</section>
+<aside>
+<section class="count-panel panel" aria-label="文字数の集計"><p class="count-label">文字数</p><div class="total"><strong id="count">0</strong><span>文字</span></div><p class="count-caption">スペース・改行を含む</p><div class="divider"></div><dl><div><dt>空白・改行を除く</dt><dd><span id="compact-count">0</span><small>文字</small></dd></div><div><dt>行数</dt><dd><span id="lines">0</span><small>行</small></dd></div></dl><span class="live"><i></i> リアルタイムで更新</span></section>
+<section class="note"><span class="note-mark">Aa</span><h2>数え方について</h2><p id="count-note">元のアプリと同じ、Unicodeのコードポイント単位で数えます。通常の絵文字は1文字、組み合わせ絵文字は複数文字として数えます。</p></section>
+</aside>
+</div>
+<p id="status" role="status" aria-live="polite">文章を入力すると、自動で文字数を数えます。</p>
+<footer><span>あなたの文章は、あなたの手元に。</span><p>入力内容や読み込んだファイルは外部に送信されません。<br>自動保存はしないため、閉じる前に「保存」からダウンロードしてください。</p></footer>
+</main>
+<dialog id="discard"><form method="dialog"><h2>編集中の文章を破棄しますか？</h2><p>保存していない変更は失われます。必要な場合はキャンセルして保存してください。</p><div class="dialog-actions"><button value="cancel" autofocus>キャンセル</button><button value="discard" class="primary">破棄して続ける</button></div></form></dialog>
+</body></html>
