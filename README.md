@@ -43,3 +43,6 @@ Renderで New → Static Site を選択し、リポジトリを接続します�
 Blueprintとして `render.yaml` を読み込むこともできます。ヘッダー設定はBlueprintに定義しています。CLIで直接サービスを作成する場合は別途適用してください。
 
 公式資料: [Static Sites](https://render.com/docs/static-sites)、[Blueprint仕様](https://render.com/docs/blueprint-spec)
+
+## オンラインデモ
+https://java-character-counter.onrender.com/
